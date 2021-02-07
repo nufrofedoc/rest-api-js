@@ -31,7 +31,7 @@
                 <loader />
             </div>
             
-            <div v-if="contacts.length">
+            <div v-else-if="contacts.length">
                 <div class="card text-white bg-dark mb-3" v-for="contact in contacts">
                     <div class="card-body" :style="{background: contact.marked ? 'black' : '#282828'}">
                         <h5 class="card-title">{{contact.name}}</h5>

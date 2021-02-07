@@ -4,8 +4,8 @@
   "description": "Rest Api",
   "main": "app.js",
   "scripts": {
-      "start": "node app.js",
-      "dev": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "js",
@@ -17,7 +17,8 @@
   "author": "Nebado",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

@@ -9,7 +9,7 @@ Vue.component('loader', {
             <div class="spinner-grow spinner-grow-sm" role="status">
                 <span class="sr-only"></span>
             </div>
-        </div
+        </div>
     `
 })
 
@@ -31,10 +31,12 @@ new Vue({
         }
     },
     methods: {
-        createContact() {
+        async createContact() {
             const {...contact} = this.form
 
-            this.contacts.push({...contact, id: Date.now(), marked: false})
+            const newContact = await request('/api/contacts', 'POST', contact)
+
+            this.contacts.push(newContact)
 
             this.form.name = this.form.value = ''
         },
@@ -59,7 +61,7 @@ async function request(url, method = 'GET', data = null) {
         let body
 
         if (data) {
-            headers['Content-Type'] = 'aplication/json'
+            headers['Content-Type'] = 'application/json'
             body = JSON.stringify(data)
         }
 

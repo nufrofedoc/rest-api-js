@@ -1,10 +1,13 @@
 const express = require('express')
 const path = require('path')
+const {v4} = require('uuid')
 const app = express()
 
 const CONTACTS = [
-    {id: 1, name: 'John', value: '+2183833283', marked: false}
+    {id: v4(), name: 'John', value: '+2183833283', marked: false}
 ]
+
+app.use(express.json())
 
 // GET
 app.get('/api/contacts', (req, res) => {
@@ -13,6 +16,12 @@ app.get('/api/contacts', (req, res) => {
     }, 3000)
 })
 
+// POST
+app.post('/api/contacts', (req, res) => {
+    const contact = {...req.body, id: v4(), marked: false}
+    CONTACTS.push(contact)
+    res.status(201).json(contact)
+})
 
 app.use(express.static(path.resolve(__dirname, 'client')))
 
