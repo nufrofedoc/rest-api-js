@@ -36,7 +36,7 @@
                     <div class="card-body" :style="{background: contact.marked ? 'black' : '#282828'}">
                         <h5 class="card-title">{{contact.name}}</h5>
                         <p class="card-text">{{contact.value}}</p>
-                        <button class="btn btn-secondary mb-2" @click="markContact(contact.id)" :disabled="contact.marked">Select</button>
+                        <button class="btn btn-primary mb-2" @click="markContact(contact.id)" :disabled="contact.marked">Select</button>
                         <button class="btn btn-danger mb-2" @click="removeContact(contact.id)">Delete</button>
                     </div>
                 </div>
