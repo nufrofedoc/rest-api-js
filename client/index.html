@@ -24,16 +24,16 @@
                 <div class="input-group mb-2 mr-sm-2">
                     <input type="text" class="form-control" id="value" v-model="form.value" placeholder="">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Create</button>
+                <button type="submit" class="btn btn-primary mb-2" :disabled="!canCreate">Create</button>
             </form>
 
             <div v-if="contacts.length">
                 <div class="card text-white bg-dark mb-3" v-for="contact in contacts">
-                    <div class="card-body">
+                    <div class="card-body" :style="{background: contact.marked ? 'black' : '#282828'}">
                         <h5 class="card-title">{{contact.name}}</h5>
                         <p class="card-text">{{contact.value}}</p>
-                        <button class="btn btn-secondary mb-2">Cancel</button>
-                        <button class="btn btn-danger mb-2">Delete</button>
+                        <button class="btn btn-secondary mb-2" @click="markContact(contact.id)" :disabled="contact.marked">Select</button>
+                        <button class="btn btn-danger mb-2" @click="removeContact(contact.id)">Delete</button>
                     </div>
                 </div>
             </div>
