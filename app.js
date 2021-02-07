@@ -13,7 +13,7 @@ app.use(express.json())
 app.get('/api/contacts', (req, res) => {
     setTimeout(() => {
         res.status(200).json(CONTACTS)
-    }, 3000)
+    }, 1000)
 })
 
 // POST
