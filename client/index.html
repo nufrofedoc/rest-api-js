@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <title>REST API</title>
-        <style>
-         [v-cloak] {
-             display: none;
-         }
-        </style>
-    </head>
-    <body>
-
-        <div class="container pt-5" id="app" v-cloak>
-            <h1>REST API</h1>
-            <form @submit.prevent="createContact">
-                <div class="form-row align-items-center">
-                    <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="name">Name</label>
-                        <input type="text" class="form-control" id="name" v-model="form.name">
-                    </div>
-                    <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="username">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input type="text" class="form-control" id="username" v-model="form.value">
-                        </div>
-                    </div>                    
-                    <div class="col-auto my-1 mt-3">
-                        <button type="submit" class="btn btn-primary mb-2" :disabled="!canCreate">Create</button>
-                    </div>
-                </div>
-            </form>
-
-            <div v-if="loading">
-                <loader />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>REST API</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container pt-5" id="app" v-cloak>
+      <h1>REST API</h1>
+      <form @submit.prevent="createContact">
+        <div class="form-row align-items-center">
+          <div class="col-sm-3 my-1">
+            <label class="sr-only" for="name">Name</label>
+            <input type="text" class="form-control" id="name" v-model="form.name" />
+          </div>
+          <div class="col-sm-3 my-1">
+            <label class="sr-only" for="username">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+              </div>
+              <input type="text" class="form-control" id="username" v-model="form.value" />
             </div>
-            
-            <div v-else-if="contacts.length">
-                <div class="card text-white bg-dark mb-3" v-for="contact in contacts">
-                    <div class="card-body" :style="{background: contact.marked ? 'black' : '#282828'}">
-                        <h5 class="card-title">{{contact.name}}</h5>
-                        <p class="card-text">{{contact.value}}</p>
-                        <button class="btn btn-primary mb-2" @click="markContact(contact.id)" :disabled="contact.marked">Select</button>
-                        <button class="btn btn-danger mb-2" @click="removeContact(contact.id)">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <p v-else>Not found contacts</p>
+          </div>
+          <div class="col-auto my-1 mt-3">
+            <button type="submit" class="btn btn-primary mb-2" :disabled="!canCreate">Create</button>
+          </div>
         </div>
-        
-        <script type="module" src="frontend.js"></script>
-    </body>
+      </form>
+
+      <div v-if="loading">
+        <loader />
+      </div>
+
+      <div v-else-if="contacts.length">
+        <div class="card text-white bg-dark mb-3" v-for="contact in contacts">
+          <div class="card-body" :style="{background: contact.marked ? 'black' : '#282828'}">
+            <h5 class="card-title">{{contact.name}}</h5>
+            <p class="card-text">{{contact.value}}</p>
+            <button class="btn btn-primary mb-2" @click="markContact(contact.id)" :disabled="contact.marked">Select</button>
+            <button class="btn btn-danger mb-2" @click="removeContact(contact.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+      <p v-else>Not found contacts</p>
+    </div>
+
+    <script type="module" src="frontend.js"></script>
+  </body>
 </html>
