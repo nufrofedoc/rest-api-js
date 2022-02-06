@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+     "dev": "nodemon app.js",
+     "prepare": "husky install"
   },
   "keywords": [
     "js",
@@ -21,7 +22,12 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "nodemon": "^2.0.7",
     "prettier": "2.5.1"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
