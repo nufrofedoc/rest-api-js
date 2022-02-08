@@ -1,12 +1,13 @@
-# Full Stack Application on JS with REST API
+# Full Stack REST API Application
 
-The full-stack application on JS with REST API. It's the fundamental project.
-Used [Vue.js](https://vuejs.org/) and Node.js framework [Express](https://expressjs.com/).
+The full-stack rest api skeleton application on JS.
 
 ## Quick start
 
-```console
-$ npm update
-$ npm run start
+```bash
+# install dependencies
+$ npm install
 
+# serve with hot reload at localhost:3000
+$ npm start dev
 ```

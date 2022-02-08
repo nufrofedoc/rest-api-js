@@ -1,12 +1,12 @@
 {
-  "name": "rest-api",
-  "version": "1.0.0",
-  "description": "Rest Api",
+  "name": "rest-api-skeleton",
+  "version": "0.0.0",
+  "description": "Rest Api Skeleton",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-     "dev": "nodemon app.js",
-     "prepare": "husky install"
+    "dev": "nodemon app.js",
+    "prepare": "husky install"
   },
   "keywords": [
     "js",
@@ -16,7 +16,7 @@
     "api"
   ],
   "author": "Nebado",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "uuid": "^8.3.2"
