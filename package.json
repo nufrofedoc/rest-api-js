@@ -4,17 +4,11 @@
   "description": "Rest Api Skeleton",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "prepare": "husky install"
   },
-  "keywords": [
-    "js",
-    "vuejs",
-    "nodejs",
-    "rest",
-    "api"
-  ],
+  "keywords": ["js", "vuejs", "nodejs", "express", "rest", "api"],
   "author": "Nebado",
   "license": "MIT",
   "dependencies": {
