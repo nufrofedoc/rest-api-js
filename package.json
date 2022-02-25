@@ -8,10 +8,18 @@
     "dev": "nodemon server/index.js",
     "prepare": "husky install"
   },
-  "keywords": ["js", "vuejs", "nodejs", "express", "rest", "api"],
+  "keywords": [
+    "js",
+    "vuejs",
+    "nodejs",
+    "express",
+    "rest",
+    "api"
+  ],
   "author": "Nebado",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "uuid": "^8.3.2"
   },

@@ -1,11 +1,17 @@
-const express = require('express')
-const path = require('path')
-const { v4 } = require('uuid')
+const express = require("express")
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const path = require("path")
+const { v4 } = require("uuid")
 const app = express()
 
-let CONTACTS = [{ id: v4(), name: 'John', value: '+2183833283', marked: false }]
-
 app.use(express.json())
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+let CONTACTS = [{ id: v4(), name: 'John', value: '+2183833283', marked: false }]
 
 // GET
 app.get('/api/contacts', (req, res) => {
@@ -34,7 +40,7 @@ app.put('/api/contacts/:id', (req, res) => {
   res.json(CONTACTS[idx])
 })
 
-app.use(express.static(path.resolve(__dirname, '../client')))
+app.use(express.static(path.resolve(__dirname, '../client/dist/')))
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client', 'index.html'))
