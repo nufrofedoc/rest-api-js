@@ -5,6 +5,7 @@ const morgan = require("morgan")
 const path = require("path")
 const { v4 } = require("uuid")
 const app = express()
+const config = require("../config/config.js")
 
 app.use(express.json())
 
@@ -44,8 +45,6 @@ app.put('/api/contacts/:id', (req, res) => {
 
 app.use(express.static(path.resolve(__dirname, '../../client/dist/')))
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../client', 'index.html'))
-})
-
-app.listen(3000, () => console.log('Server has been started on port 3000...'))
+app.listen(process.env.PORT || config.port,
+    () => console.log('Server has been started on port 3000...')
+)
