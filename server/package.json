@@ -2,10 +2,10 @@
   "name": "rest-api-skeleton",
   "version": "0.0.0",
   "description": "Rest Api Skeleton",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "prepare": "husky install"
   },
   "keywords": [
