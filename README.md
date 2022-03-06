@@ -6,14 +6,24 @@ The full-stack rest api skeleton application on Javascript with MEVN.
 
 - express ^4.17
 - vue ^2.5
+- node ^17.6
 
 ## Quick start
 
 ```bash
-$ cd client && npm run install
-$ npm install
+# Build
+$ cd client && npm install
+$ cd server && npm install
 $ cd client && npm run build
+
+# Run
+$ cd server && npm run dev
+
 ```
+
+## Usage
+
+Go to browser and open localhost:8080.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
