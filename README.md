@@ -17,6 +17,7 @@ $ cd server && npm install
 $ cd client && npm run build
 
 # Run
+$ cd client && npm run dev
 $ cd server && npm run dev
 
 ```
