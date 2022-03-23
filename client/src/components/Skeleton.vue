@@ -25,7 +25,7 @@
       <loader />
     </div>
     <div v-else-if="contacts.length">
-      <div class="card text-white bg-dark mb-3" v-for="contact in contacts">
+      <div class="card text-white bg-dark mb-3" v-for="contact in contacts" :key="contact">
         <div class="card-body" :style="{ background: contact.marked ? 'black' : '#282828' }">
           <h5 class="card-title">{{ contact.name }}</h5>
           <p class="card-text">{{ contact.value }}</p>
@@ -43,7 +43,7 @@ import ContactsService from '@/services/ContactsService'
 
 export default {
   name: 'Skeleton',
-  data() {
+  data () {
     return {
       loading: false,
       form: {
@@ -54,16 +54,16 @@ export default {
     }
   },
   computed: {
-    canCreate() {
+    canCreate () {
       return this.form.value.trim() && this.form.name.trim()
     }
   },
   methods: {
-    async getContacts() {
+    async getContacts () {
       const response = await ContactsService.fetchContacts()
       this.contacts = response.data
     },
-    async createContact() {
+    async createContact () {
       const { ...contact } = this.form
 
       const newContact = await ContactsService.addContact(contact)
@@ -72,18 +72,18 @@ export default {
 
       this.form.name = this.form.value = ''
     },
-    async markContact(id) {
+    async markContact (id) {
       const contact = this.contacts.find((c) => c.id === id)
       contact.marked = true
 
-      const updated = await ContactsService.editContact(id, ...contact)
+      await ContactsService.editContact(id, ...contact)
     },
-    async removeContact(id) {
+    async removeContact (id) {
       await ContactsService.deleteContact(id)
       this.contacts = this.contacts.filter((c) => c.id !== id)
     }
   },
-  async mounted() {
+  async mounted () {
     this.loading = true
     this.contacts = this.getContacts()
     this.loading = false
