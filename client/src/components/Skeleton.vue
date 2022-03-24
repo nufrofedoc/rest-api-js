@@ -3,11 +3,11 @@
     <h1>REST API Skeleton</h1>
     <form @submit.prevent="createContact">
       <div class="form-row align-items-center">
-        <div class="col-sm-3 my-1">
+        <div class="col-sm-12 col-md-6 col-xl-6 m-2">
           <label class="sr-only" for="name">Name</label>
           <input type="text" class="form-control" id="name" v-model="form.name" />
         </div>
-        <div class="col-sm-3 my-1">
+        <div class="col-sm-12 col-md-6 col-xl-6 m-2">
           <label class="sr-only" for="username">Username</label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -92,4 +92,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  .form-row > div {
+    text-align: left;
+  }
+</style>
